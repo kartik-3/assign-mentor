@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Assignment System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1 id="main-heading">Mentor Assignment System</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <!-- Button For Creating Mentors -->
+          <button
+            type="button"
+            class="btn btn-primary center-element"
+            data-toggle="modal"
+            data-target="#create-mentor-modal"
+            id="create-mentor-button"
+          >
+            Create mentor
+          </button>
+
+          <!-- Modal For Creating Mentors -->
+          <div
+            class="modal fade"
+            id="create-mentor-modal"
+            tabindex="-1"
+            aria-labelledby="create-mentor-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="create-mentor-modal-title">
+                    Enter the mentor name
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      id="mentor-name"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    id="save-mentor-name"
+                    class="btn btn-primary"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button For Creating Students -->
+          <button
+            type="button"
+            class="btn btn-primary center-element"
+            data-toggle="modal"
+            data-target="#create-student-modal"
+            id="create-student-button"
+          >
+            Create student
+          </button>
+
+          <!-- Modal For Creating Students -->
+          <div
+            class="modal fade"
+            id="create-student-modal"
+            tabindex="-1"
+            aria-labelledby="create-student-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="create-student-modal-title">
+                    Enter the student name
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="student-name"
+                      id="student-name"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    id="save-student-name"
+                    class="btn btn-primary"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button to Assign Student to Mentor -->
+          <button
+            type="button"
+            class="btn btn-primary center-element"
+            data-toggle="modal"
+            data-target="#assign-student-modal"
+            id="assign-student-button"
+          >
+            Assign student to mentor
+          </button>
+
+          <!-- Modal to Select Student to assign -->
+          <div
+            class="modal fade"
+            id="assign-student-modal"
+            tabindex="-1"
+            aria-labelledby="assign-student-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="assign-student-modal-title">
+                    Select student
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text"
+                        for="assign-student-select"
+                        >Select student</label
+                      >
+                    </div>
+                    <select class="custom-select" id="assign-student-select">
+                      <option selected value="none">None</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    id="save-selected-student"
+                    data-dismiss="modal"
+                    data-toggle="modal"
+                    data-target="#assign-selected-modal"
+                    class="btn btn-primary"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal to Assign Student to Mentor -->
+          <div
+            class="modal fade"
+            id="assign-selected-modal"
+            tabindex="-1"
+            aria-labelledby="assign-selected-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="assign-selected-modal-title">
+                    Select mentor
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="current-mentor-name"
+                      id="current-mentor-name"
+                      class="form-control"
+                      readonly
+                    />
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="assign-mentor-select"
+                        >Select new mentor</label
+                      >
+                    </div>
+                    <select class="custom-select" id="assign-mentor-select">
+                      <option selected value="none">None</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    id="save-assign-student"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    data-toggle="modal"
+                    data-target="#assign-mentor-modal"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal fade"
+            id="assign-mentor-modal"
+            tabindex="-1"
+            aria-labelledby="assign-mentor-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="assign-mentor-modal-title">
+                    Change mentor
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="text"
+                    name="new-mentor-name"
+                    id="new-mentor-name"
+                    class="form-control"
+                    readonly
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    id="save-selected-mentor"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                  >
+                    Yes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button to Show Mentor Information -->
+          <button
+            type="button"
+            class="btn btn-primary center-element"
+            data-toggle="modal"
+            data-target="#show-mentor-info-modal"
+            id="show-mentor-info-button"
+          >
+            Show mentor information
+          </button>
+
+          <!-- Modal to Show Mentor Information -->
+          <div
+            class="modal fade"
+            id="show-mentor-info-modal"
+            tabindex="-1"
+            aria-labelledby="show-mentor-info-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="show-mentor-info-modal-title">
+                    Show mentor information
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text"
+                        for="show-mentor-info-select"
+                        >Select mentor</label
+                      >
+                    </div>
+                    <select class="custom-select" id="show-mentor-info-select">
+                      <option selected value="none">None</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    id="close-show-mentor"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                    aria-label="close"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    id="show-mentor-selected"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    data-toggle="modal"
+                    data-target="#show-mentor-selected-modal"
+                    aria-label="close"
+                  >
+                    Select Mentor
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal to Show Mentor Information -->
+          <div
+            class="modal fade"
+            id="show-mentor-selected-modal"
+            tabindex="-1"
+            aria-labelledby="show-mentor-selected-modal-title"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="show-mentor-selected-modal-title">
+                    Select mentor
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <ul class="list-group" id="list-students"></ul>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    id="close-show-mentor-selected"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                    aria-label="close"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

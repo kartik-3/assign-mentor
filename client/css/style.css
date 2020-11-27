@@ -1,0 +1,20 @@
+.center-element {
+  display: block !important;
+  margin: 0 auto !important;
+  /* margin-top: 50px !important; */
+}
+
+#main-heading {
+  text-align: center;
+  font-weight: 800;
+  font-size: 50px;
+  padding-bottom: 30px;
+}
+
+#create-mentor-button,
+#create-student-button,
+#assign-student-button,
+#show-mentor-info-button {
+  margin: 30px !important;
+  width: 100%;
+}

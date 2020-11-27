@@ -1,0 +1,34 @@
+ASSIGN MENTOR
+    - Show list of all students.
+    - Select one student.
+        1. If NO mentor assigned
+            a. Show "Mentor assigned" = "none" in the list of mentors.
+            b. Let user select mentor.
+            c. If no mentor is selected, do not let the user save.
+            d. If more than 5 students selected for a mentor, do not assign to that mentor.
+        2. If mentor assigned
+            a. Show "Mentor assigned" = "Mentor name" in the list of mentors.
+            b. Let user choose a different mentor if he wants to change it.
+            c. Let user save whether new or old mentor.
+            d. If more than 5 students selected for a mentor, do not assign to that mentor.
+
+SHOW MENTOR
+    - Show list of all mentors.
+    - Select one mentor.
+    - In a list, show all students assigned to that mentor.
+
+
+{
+    isStudent: true/false,
+    student: {
+        name: "",
+        id: 0, //3 digit random number
+        isMentorAssigned: false,
+        mentorName: "",
+    },
+    mentor: {
+        name: "",
+        id: 0, //3 digit random number
+        students: [student.id]
+    }
+}
