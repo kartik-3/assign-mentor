@@ -26,7 +26,7 @@ document.querySelector("#save-mentor-name").addEventListener("click", () => {
 });
 
 const createMentor = async (data) => {
-  const response = await fetch("http://localhost:8000/mentors", {
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/mentors", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +57,7 @@ document.querySelector("#save-student-name").addEventListener("click", () => {
 });
 
 const createStudent = async (data) => {
-  const response = await fetch("http://localhost:8000/students", {
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/students", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -170,17 +170,17 @@ document
   });
 
 const fetchStudents = async () => {
-  const response = await fetch("http://localhost:8000/students");
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/students");
   return response.json();
 };
 
 const fetchMentors = async () => {
-  const response = await fetch("http://localhost:8000/mentors");
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/mentors");
   return response.json();
 };
 
 const updateStudent = async (id, data) => {
-  const response = await fetch("http://localhost:8000/students/" + id, {
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/students/" + id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -191,7 +191,7 @@ const updateStudent = async (id, data) => {
 };
 
 const updateMentor = async (id, data) => {
-  const response = await fetch("http://localhost:8000/mentors/" + id, {
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/mentors/" + id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -202,12 +202,12 @@ const updateMentor = async (id, data) => {
 };
 
 const fetchSingleMentor = async (id) => {
-  const response = await fetch("http://localhost:8000/mentors/" + id);
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/mentors/" + id);
   return response.json();
 };
 
 const fetchSingleStudent = async (id) => {
-  const response = await fetch("http://localhost:8000/students/" + id);
+  const response = await fetch("https://assign-mentor-kartik.herokuapp.com/students/" + id);
   return response.json();
 };
 
